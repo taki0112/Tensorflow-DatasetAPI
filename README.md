@@ -78,7 +78,7 @@ class ImageData:
         return image
     
     
-Image_Data_Class = ImageData(batch_size, img_size, simg_ch, augment_flag)
+Image_Data_Class = ImageData(batch_size, img_size, img_ch, augment_flag)
 trainA = trainA.map(Image_Data_Class.image_processing)
 
 ```
