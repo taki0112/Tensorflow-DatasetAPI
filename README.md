@@ -130,6 +130,8 @@ def train() :
 
 ```
 
+***
+
 ### 7. See `Code`
 * [Unsupervised Image to Image Translation Networks for DatasetAPI](https://github.com/taki0112/UNIT-Tensorflow)
 
