@@ -131,7 +131,7 @@ def train() :
 ```
 
 ### 7. See `Code`
-* [UNIT_DatasetAPI](https://github.com/taki0112/UNIT-Tensorflow)
+* [Unsupervised Image to Image Translation Networks for DatasetAPI](https://github.com/taki0112/UNIT-Tensorflow)
 
 
 ## Author
