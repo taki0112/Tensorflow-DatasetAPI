@@ -85,7 +85,7 @@ trainA = trainA.map(Image_Data_Class.image_processing)
 
 ***
 
-4. Set `prefetch` & `batch_size`
+### 4. Set `prefetch` & `batch_size`
 ```python
 
 trainA = trainA.shuffle(buffer_size=10000).prefetch(buffer_size=batch_size).batch(batch_size).repeat()
@@ -98,7 +98,7 @@ trainA = trainA.shuffle(buffer_size=10000).prefetch(buffer_size=batch_size).batc
 
 ***
 
-5. Set `Iterator`
+### 5. Set `Iterator`
 ```python
 
 trainA_iterator = trainA.make_initializable_iterator()
@@ -115,7 +115,7 @@ loss = network(data_A)
 
 ***
 
-6. Run `Init operation`
+### 6. Run `Init operation`
 ```python
 
 def train() :
