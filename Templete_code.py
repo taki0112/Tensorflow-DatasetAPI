@@ -13,7 +13,7 @@ class GAN(object):
         self.sample_dir = args.sample_dir
         self.dataset_name = args.dataset
 
-        self.batch_size = args.batch_size * args.gpu_num
+        self.batch_size = args.batch_size
 
         self.img_size = args.img_size
         self.img_ch = args.img_ch
@@ -21,8 +21,7 @@ class GAN(object):
         self.augment_size = self.img_size + (30 if self.img_size == 256 else 15)
 
         self.trainA_dataset = glob('./dataset/{}/*.*'.format(self.dataset_name + '/trainA'))
-        self.trainB_dataset = glob('./dataset/{}/*.*'.format(self.dataset_name + '/trainB'))
-        self.num_batches = min(len(self.trainA_dataset), len(self.trainB_dataset)) // self.batch_size
+        self.num_batches = len(self.trainA_dataset) // self.batch_size
 
     def network(self, x):
         return x
