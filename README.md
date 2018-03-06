@@ -57,6 +57,10 @@ class ImageData:
     def image_processing(self, filename):
         x = tf.read_file(filename)
         x_decode = tf.image.decode_jpeg(x, channels=self.channels)
+        
+        # DO NOT USE decode_image
+        # will be error
+        
         img = tf.image.resize_images(x_decode, [self.load_size, self.load_size])
         img = tf.cast(img, tf.float32) / 127.5 - 1
 
