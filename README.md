@@ -87,7 +87,7 @@ trainA = trainA.map(Image_Data_Class.image_processing, num_parallel_calls=8)
 
 ```
 
-* Personally recommend `num_parallel_calls` = 4 or 8
+* Personally recommend `num_parallel_calls` = `4 or 8`
 
 ***
 
@@ -98,7 +98,7 @@ trainA = trainA.shuffle(buffer_size=10000).prefetch(buffer_size=batch_size).batc
 
 ```
 
-* Personally recommend `prefetch_size` = `batch_size` or small size
+* Personally recommend `prefetch_size` = `batch_size` or `small size`
 * if `shuffle_size` is greater than the number of elements in the dataset, you get a uniform shuffle
 * if `shuffle_size` is  1 then you get no shuffling at all.
 
