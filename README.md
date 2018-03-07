@@ -39,7 +39,7 @@ trainA = tf.data.Dataset.from_tensor_slices(trainA_dataset)
         return img
         
 
-trainA = trainA.map(image_processing)
+trainA = trainA.map(image_processing, num_parallel_calls=8)
 ```
 
 * If you want `data augmentation` too...
@@ -83,7 +83,7 @@ class ImageData:
     
     
 Image_Data_Class = ImageData(batch_size, img_size, img_ch, augment_flag)
-trainA = trainA.map(Image_Data_Class.image_processing)
+trainA = trainA.map(Image_Data_Class.image_processing, num_parallel_calls=8)
 
 ```
 
