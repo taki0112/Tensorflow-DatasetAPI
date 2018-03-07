@@ -101,6 +101,12 @@ trainA = trainA.shuffle(buffer_size=10000).prefetch(buffer_size=batch_size).batc
 * Personally recommend `prefetch_size` = `batch_size` or `small size`
 * if `shuffle_size` is greater than the number of elements in the dataset, you get a uniform shuffle
 * if `shuffle_size` is  1 then you get no shuffling at all.
+* If the number of elements `N` in this dataset is not an exact multiple of batch_size, the final batch contain smaller tensors with shape `N % batch_size` in the batch dimension. 
+* If your program depends on the batches having the same shape, consider using the `tf.contrib.data.batch_and_drop_remainder `transformation instead.
+
+```python
+trainA = trainA.map(Image_Data_Class.image_processing, num_parallel_calls=8).shuffle(10000).prefetch(batch_size).apply(batch_and_drop_remainder(batch_size)).repeat()
+```
 
 ***
 
