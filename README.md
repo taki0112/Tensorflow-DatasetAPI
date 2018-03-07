@@ -87,6 +87,8 @@ trainA = trainA.map(Image_Data_Class.image_processing, num_parallel_calls=8)
 
 ```
 
+* Personally recommend `num_parallel_calls` = 4 or 8
+
 ***
 
 ### 4. Set `prefetch` & `batch_size`
