@@ -79,7 +79,7 @@ class GAN(object):
         for epoch in range(start_epoch, 200):
             for idx in range(start_batch_id, self.num_batches):
 
-                loss, _ = self.sess.run([self.train_op, self.data_A])
+                loss = self.sess.run(self.train_op)
 
 
                 # display training status
