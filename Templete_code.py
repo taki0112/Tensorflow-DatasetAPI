@@ -33,7 +33,7 @@ class GAN(object):
 
         trainA = tf.data.Dataset.from_tensor_slices(self.trainA_dataset)
 
-        trainA = trainA.map(Image_Data_Class.image_processing).shuffle(10000).prefetch(self.batch_size).batch(self.batch_size).repeat()
+        trainA = trainA.map(Image_Data_Class.image_processing, num_parallel_calls=8).shuffle(10000).prefetch(self.batch_size).batch(self.batch_size).repeat()
 
 
         trainA_iterator = trainA.make_initializable_iterator()
