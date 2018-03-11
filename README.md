@@ -105,7 +105,7 @@ trainA = trainA.shuffle(buffer_size=10000).prefetch(buffer_size=batch_size).batc
 * If your program depends on the batches having the same shape, consider using the `tf.contrib.data.batch_and_drop_remainder `transformation instead.
 
 ```python
-trainA = trainA.map(Image_Data_Class.image_processing, num_parallel_calls=8).shuffle(10000).prefetch(batch_size).apply(batch_and_drop_remainder(batch_size)).repeat()
+trainA = trainA.shuffle(10000).prefetch(batch_size).apply(batch_and_drop_remainder(batch_size)).repeat()
 ```
 
 ***
