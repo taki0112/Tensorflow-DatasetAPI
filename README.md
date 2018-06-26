@@ -108,7 +108,7 @@ trainA = trainA.shuffle(buffer_size=10000).prefetch(buffer_size=batch_size).batc
 trainA = trainA.shuffle(10000).prefetch(batch_size).apply(batch_and_drop_remainder(batch_size)).repeat()
 ```
 
-* If you use the `tensorflow 1.8`, then this is more fast
+* If you use the `tensorflow 1.8`, then this is more fast !
 ```python
 # hyper-parameter examples
 gpu_device = '/gpu:0'
