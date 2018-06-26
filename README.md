@@ -123,9 +123,7 @@ trainA = trainA.apply(shuffle_and_repeat(dataset_num)).apply(map_and_batch(Image
 ### 5. Set `Iterator`
 ```python
 
-trainA_iterator = trainA.make_initializable_iterator()
-
-# DO NOT USE make_one_shot_iterator
+trainA_iterator = trainA.make_one_shot_iterator()
 
 trainA_init_op = trainA_iterator.initializer
 
@@ -137,12 +135,10 @@ loss = network(data_A)
 
 ***
 
-### 6. Run `Init operation`
+### 6. Run `Model`
 ```python
 
 def train() :
-    trainA_init_op.run() or sess.run(trainA_init_op)
-
     for epoch ...
         for iteration ...
 
