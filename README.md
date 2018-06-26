@@ -87,7 +87,7 @@ trainA = trainA.map(Image_Data_Class.image_processing, num_parallel_calls=8)
 
 ```
 
-* Personally recommend `num_parallel_calls` = `4 or 8`
+* Personally recommend `num_parallel_calls` = `8 or 16`
 
 ***
 
@@ -106,6 +106,16 @@ trainA = trainA.shuffle(buffer_size=10000).prefetch(buffer_size=batch_size).batc
 
 ```python
 trainA = trainA.shuffle(10000).prefetch(batch_size).apply(batch_and_drop_remainder(batch_size)).repeat()
+```
+
+* If you use the `tensorflow 1.8`, then this is more fast
+```python
+# hyper-parameter examples
+gpu_device = '/gpu:0'
+dataset_num = 10000
+batch_size = 8
+
+trainA = trainA.apply(shuffle_and_repeat(dataset_num)).apply(map_and_batch(Image_Data_Class.image_processing, batch_size, num_parallel_batches=16, drop_remainder=True)).apply(prefetch_to_device(gpu_device, batch_size))
 ```
 
 ***
