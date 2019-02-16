@@ -125,8 +125,6 @@ trainA = trainA.apply(shuffle_and_repeat(dataset_num)).apply(map_and_batch(Image
 
 trainA_iterator = trainA.make_one_shot_iterator()
 
-trainA_init_op = trainA_iterator.initializer
-
 data_A = trainA_iterator.get_next()
 loss = network(data_A)
 ...
