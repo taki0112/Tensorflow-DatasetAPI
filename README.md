@@ -126,7 +126,7 @@ trainA = trainA.apply(shuffle_and_repeat(dataset_num)).apply(map_and_batch(Image
 trainA_iterator = trainA.make_one_shot_iterator()
 
 data_A = trainA_iterator.get_next()
-loss = network(data_A)
+logit = network(data_A)
 ...
 
 ```
